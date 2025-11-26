@@ -17,6 +17,10 @@ func (a Age) Value() int {
 	return a.value
 }
 
+func (a Age) IsAdult() bool {
+	return a.value >= 20
+}
+
 // 値オブジェクトの等価性
 func (a Age) Equals(other Age) bool {
 	return a.value == other.value

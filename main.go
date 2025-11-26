@@ -1,15 +1,12 @@
 package main
 
 import (
-	"fmt"
-
+	userApp "learn-ddd/application/user"
 	"learn-ddd/domain/model/user"
+	"learn-ddd/domain/service"
 )
 
 func main() {
-	u, err := user.NewUserFromPrimitives("太郎", 30)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(u)
+	app := userApp.NewUserApplication(service.NewUserService())
+	app.CreateUser(&user.User{})
 }
